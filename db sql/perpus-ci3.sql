@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 19, 2020 at 08:01 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 18 Sep 2023 pada 02.34
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projek_perpus`
+-- Database: `perpus-ci3`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_biaya_denda`
+-- Struktur dari tabel `tbl_biaya_denda`
 --
 
 CREATE TABLE `tbl_biaya_denda` (
@@ -36,16 +35,16 @@ CREATE TABLE `tbl_biaya_denda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_biaya_denda`
+-- Dumping data untuk tabel `tbl_biaya_denda`
 --
 
 INSERT INTO `tbl_biaya_denda` (`id_biaya_denda`, `harga_denda`, `stat`, `tgl_tetap`) VALUES
-(1, '4000', 'Aktif', '2019-11-23');
+(10, '3000', 'Aktif', '2023-08-26');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_buku`
+-- Struktur dari tabel `tbl_buku`
 --
 
 CREATE TABLE `tbl_buku` (
@@ -66,16 +65,18 @@ CREATE TABLE `tbl_buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_buku`
+-- Dumping data untuk tabel `tbl_buku`
 --
 
 INSERT INTO `tbl_buku` (`id_buku`, `buku_id`, `id_kategori`, `id_rak`, `sampul`, `isbn`, `lampiran`, `title`, `penerbit`, `pengarang`, `thn_buku`, `isi`, `jml`, `tgl_masuk`) VALUES
-(8, 'BK008', 2, 1, '0', '132-123-234-231', '0', 'CARA MUDAH BELAJAR PEMROGRAMAN C++', 'INFORMATIKA BANDUNG', 'BUDI RAHARJO ', '2012', '<table class=\"table table-bordered\" style=\"background-color: rgb(255, 255, 255); width: 653px; color: rgb(51, 51, 51);\"><tbody><tr><td style=\"padding: 8px; line-height: 1.42857; border-color: rgb(244, 244, 244);\">Tipe Buku</td><td style=\"padding: 8px; line-height: 1.42857; border-color: rgb(244, 244, 244);\">Kertas</td></tr><tr><td style=\"padding: 8px; line-height: 1.42857; border-color: rgb(244, 244, 244);\">Bahasa</td><td style=\"padding: 8px; line-height: 1.42857; border-color: rgb(244, 244, 244);\">Indonesia</td></tr></tbody></table>', 23, '2019-11-23 11:49:57');
+(9, 'BK001', 3, 1, '8f6621d6463ccad3713da29537a6bf2d.png', '12345', 'd3228ad0abf8149211919ca416982c0f.pdf', 'Buku PKN Kelas 1', 'Kemendikbud', '-', '2021', '<p>Buku PKN Kelas 1 Kurikulum Merdeka</p>', 10, '2023-08-26 19:33:34'),
+(10, 'BK002', 4, 1, '1a785615a27bbd1004f0e95b60dcf6de.jpg', '12345', '06812b32ce9750aac7acab1862e1a3d6.pdf', 'Laskar Pelanagi', 'Bentang Pustaka', 'Andrea Hirata', '2019', '<p>Novel Laskar Pelangi</p>', 10, '2023-08-26 19:51:21'),
+(11, 'BK003', 5, 1, 'f642837fafe6d8b4dce7c9f3f9154142.jpg', '12345', 'd3a7d032efb0f8e03c8a01b30d2b5e40.pdf', 'Science Tubuh Kita', 'Cookie Run', '-', '2022', '<p>Buku Komik</p>', 10, '2023-08-26 20:15:58');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_denda`
+-- Struktur dari tabel `tbl_denda`
 --
 
 CREATE TABLE `tbl_denda` (
@@ -87,17 +88,16 @@ CREATE TABLE `tbl_denda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_denda`
+-- Dumping data untuk tabel `tbl_denda`
 --
 
 INSERT INTO `tbl_denda` (`id_denda`, `pinjam_id`, `denda`, `lama_waktu`, `tgl_denda`) VALUES
-(3, 'PJ001', '0', 0, '2020-05-20'),
-(5, 'PJ009', '0', 0, '2020-05-20');
+(9, 'PJ0021', '0', 0, '2023-09-11');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kategori`
+-- Struktur dari tabel `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
@@ -106,16 +106,18 @@ CREATE TABLE `tbl_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_kategori`
+-- Dumping data untuk tabel `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `nama_kategori`) VALUES
-(2, 'Pemrograman');
+(3, 'Pendidikan'),
+(4, 'Novel'),
+(5, 'Komik');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_login`
+-- Struktur dari tabel `tbl_login`
 --
 
 CREATE TABLE `tbl_login` (
@@ -136,17 +138,18 @@ CREATE TABLE `tbl_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_login`
+-- Dumping data untuk tabel `tbl_login`
 --
 
 INSERT INTO `tbl_login` (`id_login`, `anggota_id`, `user`, `pass`, `level`, `nama`, `tempat_lahir`, `tgl_lahir`, `jenkel`, `alamat`, `telepon`, `email`, `tgl_bergabung`, `foto`) VALUES
-(1, 'AG001', 'anang', '202cb962ac59075b964b07152d234b70', 'Petugas', 'Anang', 'Bekasi', '1999-04-05', 'Laki-Laki', 'Ujung Harapan', '089618173609', 'fauzan1892@codekop.com', '2019-11-20', 'user_1567327491.png'),
-(2, 'AG002', 'fauzan', '202cb962ac59075b964b07152d234b70', 'Anggota', 'Fauzan', 'Bekasi', '1998-11-18', 'Laki-Laki', 'Bekasi Barat', '08123123185', 'fauzanfalah21@gmail.com', '2019-11-21', 'user_1589911243.png');
+(1, 'AG001', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Petugas', 'Admin', 'Bekasi', '1999-04-05', 'Laki-Laki', 'Ujung Harapan', '089618173609', 'adminperpus3@gmail.com', '2019-11-20', 'user_1693053482.png'),
+(2, 'AG002', 'member', 'aa08769cdcb26674c6706093503ff0a3', 'Anggota', 'Nendi', 'Bekasi', '1998-11-18', 'Laki-Laki', 'Bekasi Barat', '08109876543', 'nendi@gmail.com', '2019-11-21', 'user_1693054024.jpg'),
+(4, 'AG003', 'dede', 'b4be1c568a6dc02dcaf2849852bdb13e', 'Anggota', 'Dede Sandi', 'Bandung', '2000-01-08', 'Laki-Laki', 'Leuwi Panjang', '021', 'dede@gmail.com', '2023-08-26', 'user_1693053580.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pinjam`
+-- Struktur dari tabel `tbl_pinjam`
 --
 
 CREATE TABLE `tbl_pinjam` (
@@ -162,17 +165,17 @@ CREATE TABLE `tbl_pinjam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_pinjam`
+-- Dumping data untuk tabel `tbl_pinjam`
 --
 
 INSERT INTO `tbl_pinjam` (`id_pinjam`, `pinjam_id`, `anggota_id`, `buku_id`, `status`, `tgl_pinjam`, `lama_pinjam`, `tgl_balik`, `tgl_kembali`) VALUES
-(8, 'PJ001', 'AG002', 'BK008', 'Di Kembalikan', '2020-05-19', 1, '2020-05-20', '2020-05-20'),
-(10, 'PJ009', 'AG002', 'BK008', 'Di Kembalikan', '2020-05-20', 1, '2020-05-21', '2020-05-20');
+(20, 'PJ001', 'AG002', 'BK003', 'Dipinjam', '2023-09-02', 2, '2023-09-04', '0'),
+(21, 'PJ0021', 'AG002', 'BK001', 'Di Kembalikan', '2023-09-09', 2, '2023-09-11', '2023-09-11');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_rak`
+-- Struktur dari tabel `tbl_rak`
 --
 
 CREATE TABLE `tbl_rak` (
@@ -181,7 +184,7 @@ CREATE TABLE `tbl_rak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_rak`
+-- Dumping data untuk tabel `tbl_rak`
 --
 
 INSERT INTO `tbl_rak` (`id_rak`, `nama_rak`) VALUES
@@ -192,92 +195,92 @@ INSERT INTO `tbl_rak` (`id_rak`, `nama_rak`) VALUES
 --
 
 --
--- Indexes for table `tbl_biaya_denda`
+-- Indeks untuk tabel `tbl_biaya_denda`
 --
 ALTER TABLE `tbl_biaya_denda`
   ADD PRIMARY KEY (`id_biaya_denda`);
 
 --
--- Indexes for table `tbl_buku`
+-- Indeks untuk tabel `tbl_buku`
 --
 ALTER TABLE `tbl_buku`
   ADD PRIMARY KEY (`id_buku`);
 
 --
--- Indexes for table `tbl_denda`
+-- Indeks untuk tabel `tbl_denda`
 --
 ALTER TABLE `tbl_denda`
   ADD PRIMARY KEY (`id_denda`);
 
 --
--- Indexes for table `tbl_kategori`
+-- Indeks untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `tbl_login`
+-- Indeks untuk tabel `tbl_login`
 --
 ALTER TABLE `tbl_login`
   ADD PRIMARY KEY (`id_login`);
 
 --
--- Indexes for table `tbl_pinjam`
+-- Indeks untuk tabel `tbl_pinjam`
 --
 ALTER TABLE `tbl_pinjam`
   ADD PRIMARY KEY (`id_pinjam`);
 
 --
--- Indexes for table `tbl_rak`
+-- Indeks untuk tabel `tbl_rak`
 --
 ALTER TABLE `tbl_rak`
   ADD PRIMARY KEY (`id_rak`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_biaya_denda`
+-- AUTO_INCREMENT untuk tabel `tbl_biaya_denda`
 --
 ALTER TABLE `tbl_biaya_denda`
-  MODIFY `id_biaya_denda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_biaya_denda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tbl_buku`
+-- AUTO_INCREMENT untuk tabel `tbl_buku`
 --
 ALTER TABLE `tbl_buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tbl_denda`
+-- AUTO_INCREMENT untuk tabel `tbl_denda`
 --
 ALTER TABLE `tbl_denda`
-  MODIFY `id_denda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_denda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tbl_kategori`
+-- AUTO_INCREMENT untuk tabel `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_login`
+-- AUTO_INCREMENT untuk tabel `tbl_login`
 --
 ALTER TABLE `tbl_login`
-  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_pinjam`
+-- AUTO_INCREMENT untuk tabel `tbl_pinjam`
 --
 ALTER TABLE `tbl_pinjam`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `tbl_rak`
+-- AUTO_INCREMENT untuk tabel `tbl_rak`
 --
 ALTER TABLE `tbl_rak`
-  MODIFY `id_rak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_rak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
