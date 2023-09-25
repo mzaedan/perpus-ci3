@@ -465,7 +465,7 @@ class Transaksi extends CI_Controller
 						$no++;
 					}
 				} else {
-					echo "Cart data is not available or invalid.";
+					echo "Data Buku Tidak Ditemukan.";
 				}
 				?>
 			</tbody>
@@ -480,7 +480,7 @@ class Transaksi extends CI_Controller
 		<?php
 			}
 		} else {
-			echo "Cart data is not available or invalid.";
+			echo "Data Buku Tidak Ditemukan.";
 		}
 		?>
 		<div id="tampil"></div>
